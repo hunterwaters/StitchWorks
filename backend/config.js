@@ -4,7 +4,7 @@ dotenv.config();
 
 
 export default {
-    MONGODB_URL: process.env.MONGODB_URL || 'mongodb+srv://hunterwaters:Goldsgym1@cluster0.hw6rc.mongodb.net/stitchworks1?retryWrites=true&w=majority',
+    MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/stitchworks',
     JWT_SECRET: process.env.JWT_SECRET || 'somethingsecret',
     PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID || 'sb',
     PORT: process.env.PORT || 5000
