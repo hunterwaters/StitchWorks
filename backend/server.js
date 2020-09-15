@@ -11,7 +11,7 @@ import bodyParser from 'body-parser';
 
 
  const mongodbUrl = config.MONGODB_URL;
-mongoose.connect('mongodb+srv://hunterwaters:Goldsgym1@stitchworks.zlfok.mongodb.net/stitchworks?retryWrites=true&w=majority', {
+mongoose.connect(mongodbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true 
@@ -34,6 +34,6 @@ app.get('*', (req, res) => {
 });
 
 app.listen(config.PORT, () => {
-    console.log('Server started at http://localhost:5000');
-  });
+  console.log('Server started at http://localhost:5000');
+});
 
