@@ -11,7 +11,7 @@ import bodyParser from 'body-parser';
 
 
  const mongodbUrl = config.MONGODB_URL;
-mongoose.connect(mongodbUrl, {
+mongoose.connect('mongodb+srv://hunterwaters:Goldsgym1@stitchworks.zlfok.mongodb.net/stitchworks?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true 
