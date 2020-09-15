@@ -10,7 +10,7 @@ import bodyParser from 'body-parser';
  const path = require('path');
 
 
- const mongodbUrl = "mongodb+srv://hunterwaters:Goldsgym1@stitchworks.zlfok.mongodb.net/stitchworks?retryWrites=true&w=majority";
+ const mongodbUrl = "mongodb+srv://hunterwaters:Goldsgym1@cluster0.hw6rc.mongodb.net/stitchworks1?retryWrites=true&w=majority";
 mongoose.connect(mongodbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
