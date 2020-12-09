@@ -1,6 +1,8 @@
 
 const mongoose = require('mongoose');
 
+
+
 const shippingSchema ={
     address: {type: String, required: true},
     city: {type: String, required: true},
