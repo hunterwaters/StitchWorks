@@ -47,6 +47,7 @@ const register = (name, email, password) => async (dispatch) => {
 
 const logout = () => (dispatch) => {
   Cookie.remove("userInfo");
-  dispatch({ type: USER_LOGOUT })
+  dispatch({ type: USER_LOGOUT });
+  document.location.href ="/signin"
 }
 export { signin, register, logout, update };

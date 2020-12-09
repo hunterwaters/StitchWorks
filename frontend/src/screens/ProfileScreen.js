@@ -27,6 +27,7 @@ function ProfileScreen(props) {
   const { loading: loadingOrders, orders, error: errorOrders } = myOrderList;
   useEffect(() => {
     if (userInfo) {
+      console.log(userInfo.name)
       setEmail(userInfo.email);
       setName(userInfo.name);
       setPassword(userInfo.password);
@@ -44,6 +45,11 @@ function ProfileScreen(props) {
           <ul className="form-container">
             <li>
               <h2>User Profile</h2>
+            </li>
+            <li>
+              {loading && <div>Loading...</div>}
+              {error && <div>{error}</div>}
+              {success && <div>Profile Saved Successfully.</div>}
             </li>
             <li>
               <label htmlFor="name">
@@ -67,37 +73,10 @@ function ProfileScreen(props) {
             <li>
               <button type="button" onClick={handleLogout} className="button secondary full-width">Logout</button>
             </li>
+
           </ul>
         </form>
       </div>
-    </div>
-    <div className="profile-orders content-margined">
-      {
-        loadingOrders ? <div>Loading...</div> :
-          errorOrders ? <div>{errorOrders} </div> :
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>DATE</th>
-                  <th>TOTAL</th>
-                  <th>PAID</th>
-                  <th>ACTIONS</th>
-                </tr>
-              </thead>
-              <tbody>
-                {orders.map(order => <tr key={order._id}>
-                  <td>{order._id}</td>
-                  <td>{order.createdAt}</td>
-                  <td>{order.totalPrice}</td>
-                  <td>{order.isPaid}</td>
-                  <td>
-                    <Link to={"/order/" + order._id}>DETAILS</Link>
-                  </td>
-                </tr>)}
-              </tbody>
-            </table>
-      }
     </div>
   </div>
 }
