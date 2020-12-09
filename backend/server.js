@@ -9,14 +9,11 @@ import bodyParser from 'body-parser';
 
  const path = require('path');
 
-
- //const mongodbUrl = "mongodb+srv://hunterwaters:Goldsgym1@cluster0.hw6rc.mongodb.net/stitchworks1?retryWrites=true&w=majority";
-mongoose.connect('mongodb+srv://hunterwaters:Goldsgym1@capstone2.jkc3d.mongodb.net/Capstone2?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://hunterwaters:Goldsgym1@stitchworksfinal.h7nye.mongodb.net/NewCapstone?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true 
 }).catch (error => console.log(error.reason));
-
 
 const app = express();
 app.use(bodyParser.json());
@@ -28,6 +25,7 @@ app.get("/api/config/paypal", (req, res) => {
 })
 
 
+
 app.use(express.static(path.join(__dirname, '/../frontend/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(`${__dirname}/../frontend/build/index.html`));
@@ -36,4 +34,8 @@ app.get('*', (req, res) => {
 app.listen(config.PORT, () => {
   console.log('Server started at http://localhost:5000');
 });
+
+module.exports = app;
+
+
 
