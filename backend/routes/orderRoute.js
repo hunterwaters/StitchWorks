@@ -9,11 +9,6 @@ router.get("/",  async (req,res) => {
     res.send(orders);
 })
 
-//router.get("/mine", async (req, res) => {
-    //const orders = await Order.find({ user: req.user._id });
-    //res.send(orders);
-  //});
-
 router.get("/:id", async (req, res) => {
     const order = await Order.findOne({_id: req.params.id});
     if(order) {
@@ -35,7 +30,6 @@ router.delete("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
     const newOrder = new Order({
         orderItems: req.body.orderItems,
-        //user: req.user.id,
         shipping: req.body.shipping,
         payment: req.body.payment,
         itemsPrice: req.body.itemsPrice,

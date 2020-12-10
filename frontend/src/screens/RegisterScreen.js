@@ -66,7 +66,7 @@ function RegisterScreen (props) {
                     </input>
                 </li>
                 <li>
-                    <button type = "submit "  className = "button">Sign-In</button>
+                    <button type = "submit "  className = "button">Register</button>
                 </li>
                 <li>
                     Already have an account? <Link to ={redirect  === "/" ? "signin" : "signin?redirect=" + redirect} className = "button-primary">Go to Sign-In</Link>

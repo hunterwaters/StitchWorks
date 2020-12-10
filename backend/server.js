@@ -8,11 +8,12 @@ import bodyParser from 'body-parser';
 
  const path = require('path');
 
-mongoose.connect('mongodb+srv://hunterwaters:Goldsgym1@stitchworksfinal.h7nye.mongodb.net/NewCapstone?retryWrites=true&w=majority', {
+ const mongodbUrl = config.MONGODB_URL;
+mongoose.connect(mongodbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true 
-}).catch (error => console.log(error.reason));
+}).catch (err => console.log(err));
 
 const app = express();
 app.use(bodyParser.json());
@@ -22,7 +23,6 @@ app.use("/api/orders", orderRoute);
 app.get("/api/config/paypal", (req, res) => {
     res.send(config.PAYPAL_CLIENT_ID);
 })
-
 
 
 app.use(express.static(path.join(__dirname, '/../frontend/build')));
